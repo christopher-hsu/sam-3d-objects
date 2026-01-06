@@ -1,4 +1,3 @@
-# Copyright (c) Meta Platforms, Inc. and affiliates.
 import sys
 
 # import inference code

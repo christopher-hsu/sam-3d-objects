@@ -68,6 +68,41 @@ For  more details and multi-object reconstruction, please take a look at out two
 * [multi object](notebook/demo_multi_object.ipynb)
 
 
+## installation with 5090
+tested on 
+ - NVIDIA-SMI 580.95.05
+ - Driver Version: 580.95.05
+ - CUDA Version: 13.0  
+
+https://github.com/facebookresearch/sam-3d-objects/issues/15
+
+```
+# Create environment
+conda create -n sam3d-objects python=3.11
+
+conda activate sam3d-objects
+
+# Install torch
+pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu128
+
+# Update dependency
+conda env update -f sam3d-objects-single.yml
+
+# Refresh (This is necessary.)
+conda deactivate
+conda activate sam3d-objects
+
+# Build pytorch3d
+python setup.py install
+
+# Build kaolin
+pip install -e . --no-build-isolation
+
+# Run demo.py
+python demo.py
+```
+
+
 ## SAM 3D Body
 
 [SAM 3D Body (3DB)](https://github.com/facebookresearch/sam-3d-body) is a robust promptable foundation model for single-image 3D human mesh recovery (HMR).
